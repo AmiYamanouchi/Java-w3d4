@@ -1,0 +1,88 @@
+
+public class BankAccount {
+	
+	private int accountNumber;
+	private String customeName;
+	private double balance;
+	private int yearCreated;
+	private int monthCreated;
+	
+	//constructor (名前一緒でなければいけない)
+	public BankAccount(int accountNumber, String customeName, double balance, int yearCreated, int monthCreated) {
+		
+		this.accountNumber = accountNumber;
+		
+		if(customeName == "" || customeName == null) {
+			this.customeName = "Unknown";
+		} else {
+			this.customeName = customeName;
+		}
+		
+		if(balance < 0) {
+			return 
+		}
+		this.balance = balance;
+		this.yearCreated = yearCreated;
+		this.monthCreated = monthCreated;
+		
+		
+	}
+	
+	//getters
+	public int getAccountNumber() {	
+		return accountNumber;
+	}
+	
+	public String getCustomerName() {
+		return customeName;
+	}
+	
+	public double getBalance() {
+		return balance;
+	}
+	
+	public int getYearCreated() {
+		return yearCreated;
+	}
+	
+	public int getMonthCreated() {
+		return monthCreated;
+	}
+	
+	
+	//setters
+	
+	public void setAccountNumber(int accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+	
+	public void setCustomerName(String customerName) {
+		if(customeName == "" || customeName == null) {
+			this.customeName = customerName;
+		}
+	}
+	
+	public void setBalance(double balance) {
+		if(balance > 0) {
+			this.balance = balance;
+		}
+	}
+	
+	public void setYear(int year) {
+		if(year < 1900) {
+			this.yearCreatedAccount = 1900;
+		} else {
+			this.yearCreatedAccount = yearCreated;
+		}
+	}
+	//deposit(double moneyAcount) --> money which customer wants to deposit should be more then zero
+	
+	//withdraw(double moneyAmount) -->money which customer wants to withdraw should be less then his balance
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

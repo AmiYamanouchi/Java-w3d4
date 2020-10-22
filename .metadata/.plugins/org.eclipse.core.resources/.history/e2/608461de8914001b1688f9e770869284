@@ -1,0 +1,111 @@
+
+public class BankAccount {
+	
+	private int accountNumber;
+	private String customeName;
+	private double balance;
+	private int yearCreated;
+	private int monthCreated;
+	
+	//constructor (名前一緒でなければいけない)
+	public BankAccount(int accountNumber, String customerName, double balance, int yearCreated, int monthCreated) {
+		setAccountNumber(accountNumber);
+		setCustomerName(customerName);
+		setBalance(balance);
+		setYearCreated(yearCreated);
+		
+		this.accountNumber = accountNumber;
+		
+		if(customeName == "" || customeName == null) {
+			this.customeName = "Unknown";
+		} else {
+			this.customeName = customerName;
+		}
+		
+		
+		this.balance = balance;
+		this.yearCreated = yearCreated;
+		this.monthCreated = monthCreated;
+		
+		
+	}
+	
+	//getters
+	public int getAccountNumber() {	
+		return accountNumber;
+	}
+	
+	public String getCustomerName() {
+		return customeName;
+	}
+	
+	public double getBalance() {
+		return balance;
+	}
+	
+	public int getYearCreated() {
+		return yearCreated;
+	}
+	
+	public int getMonthCreated() {
+		return monthCreated;
+	}
+	
+	
+	//setters
+	
+	public void setAccountNumber(int accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+	
+	public void setCustomerName(String customerName) {
+		if(customeName == "" || customeName == null) {
+			this.customeName = customerName;
+		}
+	}
+	
+	public void setBalance(double balance) {
+		if(balance > 0) {
+			this.balance = balance;
+		}
+	}
+	
+	public void setYearCreated(int yearCreated) {
+		if(yearCreated < 1900) {
+			this.yearCreated = 1900;
+		} else {
+			this.yearCreated = yearCreated;
+		}
+	}
+	
+	public void setMonthCreated(int monthCreated) {
+		if(monthCreated >= 1 && monthCreated <= 12) {
+			this.monthCreated = monthCreated;
+		}
+	}
+	
+	
+	//deposit(double moneyAcount) --> money which customer wants to deposit should be more then zero
+	
+	public void  deposit(double depositAmount) {
+		if(depositAmount > 0) {
+			balance += depositAmount;
+		} else {
+			System.err.println("Deposit Amount should be more than zero.");
+		}
+	}
+	
+	//withdraw(double moneyAmount) -->money which customer wants to withdraw should be less then his balance
+	
+	public void  withdraw(double withdrawAmount) {
+		if(withdrawAmount > 0 && withdrawAmount <= balance) {
+			balance -= withdrawAmount;
+		} else if (withdrawAmount < 0) {
+			System.err.println("withdraw Amount should be more than zero.");
+		} else if (withdrawAmount > balance) {
+			System.err.println("withdraw Amount should be less than your balance.");
+		}
+	}
+
+
+}
